@@ -14,7 +14,7 @@ class Sidebar extends Component
             <!-- Sidebar user panel (optional) -->
             <div class="user-panel mt-3 pb-3 mb-3 d-flex">
               <div class="image">
-                <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+                <img src="{{asset('/dist/img/user2-160x160.jpg')}}" class="img-circle elevation-2" alt="User Image">
               </div>
               <div class="info">
                 <a href="#" class="d-block">Alexander Pierce</a>
@@ -60,7 +60,30 @@ class Sidebar extends Component
                       </a>
                     </li>
                     <li class="nav-item">
-                      <a href="#" class="nav-link">
+                      <a href="/anggota/create" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Add Data</p>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+                <li class="nav-item ">
+                  <a href="#" class="nav-link ">
+                    <i class="nav-icon fas fa-list"></i>
+                    <p>
+                      Data Rak
+                      <i class="right fas fa-angle-left"></i>
+                    </p>
+                  </a>
+                  <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                      <a href="/rak" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>View Data</p>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="/rak/create" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
                         <p>Add Data</p>
                       </a>

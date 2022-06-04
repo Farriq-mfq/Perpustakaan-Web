@@ -1,3 +1,6 @@
 require("./bootstrap");
-import Turbo from "turbolinks";
-Turbo.start();
+import Turbolinks from "turbolinks";
+Turbolinks.start();
+document.addEventListener("turbolinks:load", function (event) {
+    window.livewire.restart();
+});
