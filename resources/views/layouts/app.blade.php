@@ -8,7 +8,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{{$title ." - ". config('app.name') }}</title>
-
+  
+  @livewireStyles
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome Icons -->
@@ -18,8 +19,17 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <link rel="stylesheet" href="{{asset('/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css')}}">
   <link rel="stylesheet" href="{{asset('/plugins/datatables-responsive/css/responsive.bootstrap4.min.css')}}">
   <link rel="stylesheet" href="{{asset('/plugins/datatables-buttons/css/buttons.bootstrap4.min.css')}}">
-  @livewireStyles
+  <style>
+    .turbolinks-progress-bar {
+      height: 3px;
+      background-color: #343A40;
+    }
+  </style>
   @stack('styles')
+  <script src="{{asset('/plugins/jquery/jquery.min.js')}}" ></script>
+  <script src="{{asset('/plugins/bootstrap/js/bootstrap.bundle.min.js')}}" ></script>
+  <script src="{{asset('/dist/js/adminlte.min.js')}}"></script>
+  @stack('scripts')
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -75,23 +85,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 </div>
 <!-- ./wrapper -->
 @livewireScripts
-<script src="{{asset('/dist/livewire-turbolinks.js')}}" data-turbolinks-eval="false"></script>
+<script src="{{asset('/dist/livewire-turbolinks.js')}}" data-turbolinks-eval="false" data-turbo-eval="false"></script>
 <script src="{{asset("/js/app.js")}}"></script>
-<script src="{{asset('/plugins/jquery/jquery.min.js')}}"></script>
-<script src="{{asset('/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
-<script src="{{asset('/dist/js/adminlte.min.js')}}"></script>
-<script src="{{asset('/plugins/datatables/jquery.dataTables.min.js')}}"></script>
-<script src="{{asset('/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js')}}"></script>
-<script src="{{asset('/plugins/datatables-responsive/js/dataTables.responsive.min.js')}}"></script>
-<script src="{{asset('/plugins/datatables-responsive/js/responsive.bootstrap4.min.js')}}"></script>
-<script src="{{asset('/plugins/datatables-buttons/js/dataTables.buttons.min.js')}}"></script>
-<script src="{{asset('/plugins/datatables-buttons/js/buttons.bootstrap4.min.js')}}"></script>
-<script src="{{asset('/plugins/jszip/jszip.min.js')}}"></script>
-<script src="{{asset('/plugins/pdfmake/pdfmake.min.js')}}"></script>
-<script src="{{asset('/plugins/pdfmake/vfs_fonts.js')}}"></script>
-<script src="{{asset('/plugins/datatables-buttons/js/buttons.html5.min.js')}}"></script>
-<script src="{{asset('/plugins/datatables-buttons/js/buttons.print.min.js')}}"></script>
-<script src="{{asset('/plugins/datatables-buttons/js/buttons.colVis.min.js')}}"></script>
-@stack('scripts')
 </body>
 </html>

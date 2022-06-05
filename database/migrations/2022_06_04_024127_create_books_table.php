@@ -24,7 +24,11 @@ class CreateBooksTable extends Migration
             $table->year('tahun_terbit');
             $table->bigInteger('stok');
             $table->foreignIdFor(Rak::class);
+            $table->string('cover');
             $table->string('source');
+            $table->string('slug');
+            $table->enum('type',['fisik','ebook']);
+            $table->boolean('status')->default(true);
             $table->timestamps();
         });
     }

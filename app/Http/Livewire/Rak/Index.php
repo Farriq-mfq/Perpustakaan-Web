@@ -8,6 +8,6 @@ class Index extends Component
 {
     public function render()
     {
-        return view('livewire.rak.index')->extends('layouts.app',['title'=>"Rak"])->section('content');
+        return view('livewire.rak.index')->extends('layouts.app',['title'=>"Data Rak"])->section('content');
     }
 }

@@ -209,11 +209,11 @@
     </div>
 </div>
 @push('scripts')
-<script src="{{asset('/plugins/jquery/jquery.min.js')}}"></script>
-
-<script src="{{asset('/plugins/chart.js/Chart.min.js')}}"></script>
+<script src="{{asset('/plugins/jquery/jquery.min.js')}}" ></script>
+<script src="{{asset('/plugins/chart.js/Chart.min.js')}}" ></script>
 <script>
     /* global Chart:false */
+document.addEventListener('turbolinks:load', function() {
 
 $(function () {
   'use strict'
@@ -358,6 +358,6 @@ $(function () {
     }
   })
 })
-
+})
 </script>
 @endpush

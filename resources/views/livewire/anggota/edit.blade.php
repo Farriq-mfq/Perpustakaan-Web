@@ -14,6 +14,7 @@
                   <h3 class="card-title">Form edit anggota</h3>
                 </div>
                 <form wire:submit.prevent="edit">
+                  @csrf
                   <div class="card-body">
                     <div class="form-group">
                       <label for="nama">Nama</label>

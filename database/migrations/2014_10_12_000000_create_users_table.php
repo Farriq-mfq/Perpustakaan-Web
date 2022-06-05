@@ -21,6 +21,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->boolean('status')->default(true);
             $table->enum('role',['admin','anggota'])->default('anggota');
+            $table->string('profile_picture')->nullable();
             $table->timestamps();
         });
     }

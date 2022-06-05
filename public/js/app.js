@@ -2068,9 +2068,6 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 
 turbolinks__WEBPACK_IMPORTED_MODULE_0___default().start();
-document.addEventListener("turbolinks:load", function (event) {
-  window.livewire.restart();
-});
 
 /***/ }),
 

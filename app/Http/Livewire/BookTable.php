@@ -2,17 +2,16 @@
 
 namespace App\Http\Livewire;
 
-use App\Exports\UsersExport;
 use Rappasoft\LaravelLivewireTables\DataTableComponent;
 use Rappasoft\LaravelLivewireTables\Views\Column;
 use Rappasoft\LaravelLivewireTables\Views\Columns\BooleanColumn;
+use App\Models\Book;
 use Rappasoft\LaravelLivewireTables\Views\Columns\ButtonGroupColumn;
 use Rappasoft\LaravelLivewireTables\Views\Columns\LinkColumn;
-use App\Models\User;
-use Maatwebsite\Excel\Facades\Excel;
-class AnggotaTable extends DataTableComponent
+
+class BookTable extends DataTableComponent
 {
-    protected $model = User::class;
+    protected $model = Book::class;
 
     public function configure(): void
     {
@@ -24,27 +23,26 @@ class AnggotaTable extends DataTableComponent
         return [
             Column::make("Id", "id")
                 ->sortable(),
-            Column::make("Nama", "nama")
-                ->sortable()
-                ->searchable()
-                ,
-            Column::make("Username", "username")
-                ->sortable()
-                ->searchable()
-                ,
-            Column::make("Email", "email")
-                ->sortable()
-                ->searchable()
-                ,
-            BooleanColumn::make('Status','status')
-            ->sortable()
-            ,
+            Column::make("Judul", "judul")
+                ->sortable()->searchable(),
+            Column::make("Stok", "stok")
+                ->sortable(),
+            BooleanColumn::make("Status", "status")
+                ->sortable(),
             Column::make("Created at", "created_at")
                 ->sortable(),
             Column::make("Updated at", "updated_at")
                 ->sortable(),
             ButtonGroupColumn::make('Actions')
             ->unclickable()->buttons([
+                LinkColumn::make('Edit Link')
+                        ->title(fn($row) => 'Details')
+                        ->location(fn($row) => route('books.view',$row->id))
+                        ->attributes(function($row) {
+                            return [
+                                'class' => 'btn btn-info',
+                            ];
+                        }),
                 LinkColumn::make('Edit Link')
                         ->title(fn($row) => 'Edit')
                         ->location(fn($row) => route('anggota.edit',$row->id))
@@ -65,29 +63,16 @@ class AnggotaTable extends DataTableComponent
             'remove' => 'Hapus',
         ];
     }
-    public function activate(){
-        User::whereIn('id', $this->getSelected())->update(['status' => 1]);
-        $this->clearSelected();
-        redirect()->route('anggota.index');
-    }
-    public function deactivate(){
-        User::whereIn('id', $this->getSelected())->update(['status' => 0]);
-        $this->clearSelected();
-        redirect()->route('anggota.index');
-
-    }
-    public function export()
+    public function activate()
     {
-        $users = $this->getSelected();
-
+        Book::whereIn('id', $this->getSelected())->update(['status' => 1]);
         $this->clearSelected();
-        
-        return Excel::download(new UsersExport($users), 'users.xlsx');
+        redirect()->route('books.index');
     }
-    public function remove()
+    public function deactivate()
     {
-        User::whereIn('id', $this->getSelected())->delete();
+        Book::whereIn('id', $this->getSelected())->update(['status' => 0]);
         $this->clearSelected();
-        redirect()->route('anggota.index');
+        redirect()->route('books.index');
     }
 }

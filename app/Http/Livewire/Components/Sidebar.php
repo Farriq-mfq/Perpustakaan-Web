@@ -37,7 +37,7 @@ class Sidebar extends Component
             <nav class="mt-2">
               <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <li class="nav-item">
-                  <a href="/" class="nav-link">
+                  <a href="{{route('home.index')}}" class="nav-link">
                     <i class="nav-icon fas fa-tachometer-alt"></i>
                     <p>
                       Dashboard
@@ -54,13 +54,13 @@ class Sidebar extends Component
                   </a>
                   <ul class="nav nav-treeview">
                     <li class="nav-item">
-                      <a href="/anggota" class="nav-link">
+                      <a href="{{route('anggota.index')}}" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
                         <p>View Data</p>
                       </a>
                     </li>
                     <li class="nav-item">
-                      <a href="/anggota/create" class="nav-link">
+                      <a href="{{route('anggota.create')}}" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
                         <p>Add Data</p>
                       </a>
@@ -77,13 +77,13 @@ class Sidebar extends Component
                   </a>
                   <ul class="nav nav-treeview">
                     <li class="nav-item">
-                      <a href="/rak" class="nav-link">
+                      <a href="{{route('rak.index')}}" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
                         <p>View Data</p>
                       </a>
                     </li>
                     <li class="nav-item">
-                      <a href="/rak/create" class="nav-link">
+                      <a href="{{route('rak.create')}}" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
                         <p>Add Data</p>
                       </a>
@@ -100,13 +100,13 @@ class Sidebar extends Component
                   </a>
                   <ul class="nav nav-treeview">
                     <li class="nav-item">
-                      <a href="#" class="nav-link">
+                      <a href="{{route('books.index')}}" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
                         <p>View Data</p>
                       </a>
                     </li>
                     <li class="nav-item">
-                      <a href="#" class="nav-link">
+                      <a href="{{route('books.create')}}" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
                         <p>Add Data</p>
                       </a>
