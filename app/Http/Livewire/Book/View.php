@@ -15,7 +15,7 @@ class View extends Component
         $find = Book::find($id);
         if($find){
             $this->book = $find;
-            $this->lokasi_rak = Rak::find($find->id)->lokasi_rak;
+            $this->lokasi_rak = Rak::find($find->rak_id)->lokasi_rak;
         }
     }
     public function render()

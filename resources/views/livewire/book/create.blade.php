@@ -1,4 +1,7 @@
-
+@push('styles')
+<link rel="stylesheet" href="{{asset('/plugins/select2/css/select2.min.css')}}">
+<link rel="stylesheet" href="{{asset('/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css')}}">
+@endpush
 <div>
     @if(session()->has('alert'))
     <div class="alert alert-info alert-dismissible">
@@ -81,7 +84,7 @@
                     </div>
                     <div class="form-group">
                         <label>Rak</label>
-                        <select wire:model="rak_id" class="form-control @error('rak_id') is-invalid @enderror" style="width: 100%;">
+                        <select wire:model="rak_id" class="form-control @error('rak_id') is-invalid @enderror select2" style="width: 100%;">
                             @foreach ($raks as $rak)
                             <option value="{{$rak->id}}">{{$rak->lokasi_rak}}</option>
                             @endforeach
@@ -121,7 +124,7 @@
                     </div>
                     <div class="form-group">
                         <label>Type</label>
-                        <select wire:model="type" class="form-control @error('type') is-invalid @enderror" style="width: 100%;">
+                        <select wire:model="type" class="form-control select2 @error('type') is-invalid @enderror" style="width: 100%;">
                             <option value="fisik">Fisik</option>
                             <option value="ebook">E-Book</option>
                         </select>
@@ -141,3 +144,13 @@
             </div>
       </div>
   </div>
+  @push('scripts')
+  <script src="{{asset("/plugins/select2/js/select2.full.min.js")}}"></script>
+  <script>
+    document.addEventListener('livewire:load', function() {
+      $(function () {
+        $('.select2').select2()
+      })
+    })
+  </script>
+  @endpush

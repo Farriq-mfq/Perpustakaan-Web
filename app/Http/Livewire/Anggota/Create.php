@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire\Anggota;
 
-use App\Models\User;
+use App\Models\Anggota;
 use Illuminate\Support\Facades\Hash;
 use Livewire\Component;
 
@@ -38,7 +38,7 @@ class Create extends Component
             
         ]);
 
-        $simpan = User::create([
+        $simpan = Anggota::create([
             'nama'=>$this->nama,
             'username'=>$this->username,
             'email'=>$this->email,

@@ -64,7 +64,7 @@
             <div class="card">
               <div class="card-header border-0">
                 <div class="d-flex justify-content-between">
-                  <h3 class="card-title">Online Store Visitors</h3>
+                  <h3 class="card-title">Grafik Peminjaman Perbulan</h3>
                   <a href="javascript:void(0);">View Report</a>
                 </div>
               </div>
@@ -213,7 +213,7 @@
 <script src="{{asset('/plugins/chart.js/Chart.min.js')}}" ></script>
 <script>
     /* global Chart:false */
-document.addEventListener('turbolinks:load', function() {
+document.addEventListener('livewire:load', function() {
 
 $(function () {
   'use strict'

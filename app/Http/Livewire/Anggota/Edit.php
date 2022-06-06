@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire\Anggota;
 
-use App\Models\User;
+use App\Models\Anggota;
 use Illuminate\Support\Facades\Hash;
 use Livewire\Component;
 
@@ -14,7 +14,7 @@ class Edit extends Component
     public $idAnggota;
     public function mount($id)
     {
-        $anggota = User::find($id);
+        $anggota = Anggota::find($id);
         if($anggota){
             $this->nama = $anggota->nama;
             $this->idAnggota = $anggota->id;
@@ -34,7 +34,7 @@ class Edit extends Component
             'konfirmasi.required'=>"Konfirmasi harus di isi!",
             'konfirmasi.same'=>"Konfirmasi Invalid!",            
         ]);
-        $update = User::find($this->idAnggota)->update([
+        $update = Anggota::find($this->idAnggota)->update([
             'nama'=>$this->nama,
             'password'=>Hash::make($this->password)
         ]);

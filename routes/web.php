@@ -12,17 +12,20 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/',"\App\Http\Livewire\Home\Index")->name('home.index');
-// anggota
-Route::get('/anggota',"\App\Http\Livewire\Anggota\Index")->name('anggota.index');
-Route::get('/anggota/create',"\App\Http\Livewire\Anggota\Create")->name('anggota.create');
-Route::get('/anggota/{id}/edit',"\App\Http\Livewire\Anggota\Edit")->name('anggota.edit');
-// Rak
-Route::get('/rak','\App\Http\Livewire\Rak\Index')->name('rak.index');
-Route::get('/rak/create','\App\Http\Livewire\Rak\Create')->name('rak.create');
-Route::get('/rak/{id}/edit','\App\Http\Livewire\Rak\Edit')->name('rak.edit');
-// Books
-Route::get('/buku','\App\Http\Livewire\Book\Index')->name('books.index');
-Route::get('/buku/create','\App\Http\Livewire\Book\Create')->name('books.create');
-Route::get('/buku/{id}/view','\App\Http\Livewire\Book\View')->name('books.view');
+// Route::prefix('admin')->group(function(){
+    Route::get('/',"\App\Http\Livewire\Home\Index")->name('home.index');
+    // anggota
+    Route::get('/anggota',"\App\Http\Livewire\Anggota\Index")->name('anggota.index');
+    Route::get('/anggota/create',"\App\Http\Livewire\Anggota\Create")->name('anggota.create');
+    Route::get('/anggota/{id}/edit',"\App\Http\Livewire\Anggota\Edit")->name('anggota.edit');
+    // Rak
+    Route::get('/rak','\App\Http\Livewire\Rak\Index')->name('rak.index');
+    Route::get('/rak/create','\App\Http\Livewire\Rak\Create')->name('rak.create');
+    Route::get('/rak/{id}/edit','\App\Http\Livewire\Rak\Edit')->name('rak.edit');
+    // Books
+    Route::get('/buku','\App\Http\Livewire\Book\Index')->name('books.index');
+    Route::get('/buku/create','\App\Http\Livewire\Book\Create')->name('books.create');
+    Route::get('/buku/{id}/view','\App\Http\Livewire\Book\View')->name('books.view');
+    Route::get('/buku/{id}/edit','\App\Http\Livewire\Book\Edit')->name('books.edit');
+    Route::get('/peminjaman','\App\Http\Livewire\Rent\Index')->name('rent.index');
+// });

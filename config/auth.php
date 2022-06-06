@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Anggota;
+
 return [
 
     /*
@@ -40,6 +42,10 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+        'anggota'=>[
+            'driver'=>'session',
+            'provider'=>"anggotaProvider"
+        ]
     ],
 
     /*
@@ -64,6 +70,10 @@ return [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
         ],
+        'anggotaProvider'=>[
+            'dirver'=>'eloquent',
+            'model'=>Anggota::class
+        ]
 
         // 'users' => [
         //     'driver' => 'database',

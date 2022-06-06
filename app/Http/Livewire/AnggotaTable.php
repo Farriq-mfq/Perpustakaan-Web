@@ -3,16 +3,16 @@
 namespace App\Http\Livewire;
 
 use App\Exports\UsersExport;
+use App\Models\Anggota;
 use Rappasoft\LaravelLivewireTables\DataTableComponent;
 use Rappasoft\LaravelLivewireTables\Views\Column;
 use Rappasoft\LaravelLivewireTables\Views\Columns\BooleanColumn;
 use Rappasoft\LaravelLivewireTables\Views\Columns\ButtonGroupColumn;
 use Rappasoft\LaravelLivewireTables\Views\Columns\LinkColumn;
-use App\Models\User;
 use Maatwebsite\Excel\Facades\Excel;
 class AnggotaTable extends DataTableComponent
 {
-    protected $model = User::class;
+    protected $model = Anggota::class;
 
     public function configure(): void
     {
@@ -66,12 +66,12 @@ class AnggotaTable extends DataTableComponent
         ];
     }
     public function activate(){
-        User::whereIn('id', $this->getSelected())->update(['status' => 1]);
+        Anggota::whereIn('id', $this->getSelected())->update(['status' => 1]);
         $this->clearSelected();
         redirect()->route('anggota.index');
     }
     public function deactivate(){
-        User::whereIn('id', $this->getSelected())->update(['status' => 0]);
+        Anggota::whereIn('id', $this->getSelected())->update(['status' => 0]);
         $this->clearSelected();
         redirect()->route('anggota.index');
 
@@ -82,11 +82,11 @@ class AnggotaTable extends DataTableComponent
 
         $this->clearSelected();
         
-        return Excel::download(new UsersExport($users), 'users.xlsx');
+        return Excel::download(new UsersExport($users), 'anggota.xlsx');
     }
     public function remove()
     {
-        User::whereIn('id', $this->getSelected())->delete();
+        Anggota::whereIn('id', $this->getSelected())->delete();
         $this->clearSelected();
         redirect()->route('anggota.index');
     }

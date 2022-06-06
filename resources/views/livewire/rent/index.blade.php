@@ -11,12 +11,12 @@
       @endif
         <div class="col-lg-12">
             <div class="card">
-                <div class="card-header align-items-center d-flex justify-content-between">
-                  <h3 class="card-title">Table Data Buku</h3>
+                <div class="card-header align-items-center d-flex">
+                  <h3 class="card-title">Data Peminjaman</h3>
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
-                  <livewire:book-table theme="bootstrap-4" />
+                  <livewire:rent-table theme="bootstrap-4" />
                 </div>
               </div>
               </div>

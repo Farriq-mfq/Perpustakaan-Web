@@ -13,9 +13,6 @@
             <div class="card">
                 <div class="card-header align-items-center d-flex">
                   <h3 class="card-title">Data Rak</h3>
-                  <a class="ml-3 btn btn-sm btn-primary" href="{{route('rak.index')}}">
-                    <i class="fas fa-sync"></i>
-                  </a>
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
