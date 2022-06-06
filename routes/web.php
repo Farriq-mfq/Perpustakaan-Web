@@ -13,6 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 // Route::prefix('admin')->group(function(){
+    Route::middleware('auth:admin')->group(function(){
+
+    
     Route::get('/',"\App\Http\Livewire\Home\Index")->name('home.index');
     // anggota
     Route::get('/anggota',"\App\Http\Livewire\Anggota\Index")->name('anggota.index');
@@ -28,4 +31,9 @@ use Illuminate\Support\Facades\Route;
     Route::get('/buku/{id}/view','\App\Http\Livewire\Book\View')->name('books.view');
     Route::get('/buku/{id}/edit','\App\Http\Livewire\Book\Edit')->name('books.edit');
     Route::get('/peminjaman','\App\Http\Livewire\Rent\Index')->name('rent.index');
-// });
+});
+    // });
+    Route::middleware('guest:admin')->group(function(){
+        Route::get('/login','\App\Http\Livewire\Auth\Login')->name('auth.login');
+    });
+    // auth admin

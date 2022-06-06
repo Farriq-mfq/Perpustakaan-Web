@@ -25,6 +25,7 @@ class CreateRentsTable extends Migration
             $table->date('tanggal_pinjam');
             $table->date('tanggal_kembali');
             $table->enum('status',['pinjam','telat'])->default('pinjam');
+            $table->boolean('persetujuan')->default(false);
             $table->bigInteger('denda')->default(0);
             $table->timestamps();
         });

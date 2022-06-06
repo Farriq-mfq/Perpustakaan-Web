@@ -17,7 +17,7 @@ class Sidebar extends Component
                 <img src="{{asset('/dist/img/user2-160x160.jpg')}}" class="img-circle elevation-2" alt="User Image">
               </div>
               <div class="info">
-                <a href="#" class="d-block">Alexander Pierce</a>
+                <a href="#" class="d-block">{{auth()->user()->nama}}</a>
               </div>
             </div>
       
@@ -207,6 +207,11 @@ class Sidebar extends Component
                       Settings
                     </p>
                   </a>
+                </li>
+                <li class="nav-item">
+                <button type="button" class="btn btn-danger text-white nav-link" data-toggle="modal" data-target="#modal-logout">
+                  Logout
+                 </button>
                 </li>
               </ul>
             </nav>

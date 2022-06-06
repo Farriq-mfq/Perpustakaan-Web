@@ -5,8 +5,7 @@ namespace App\Http\Livewire;
 use Rappasoft\LaravelLivewireTables\DataTableComponent;
 use Rappasoft\LaravelLivewireTables\Views\Column;
 use App\Models\Rent;
-use Rappasoft\LaravelLivewireTables\Views\Columns\ButtonGroupColumn;
-use Rappasoft\LaravelLivewireTables\Views\Columns\LinkColumn;
+use Rappasoft\LaravelLivewireTables\Views\Columns\BooleanColumn;
 
 class RentTable extends DataTableComponent
 {
@@ -20,8 +19,8 @@ class RentTable extends DataTableComponent
     public function columns(): array
     {
         return [
-            // Column::make("Id", "id")
-            //     ->sortable(),
+            Column::make("Id", "id")
+                ->sortable(),
             Column::make("Kode Pinjam",'kode_pinjam')
             ->sortable()
             ->searchable()
@@ -37,13 +36,37 @@ class RentTable extends DataTableComponent
                 ->sortable(),
             Column::make("Tanggal Kembali", "tanggal_kembali")
                 ->sortable(),
-            Column::make("Status", "status"),
+            Column::make("Status", "status")->sortable( ),
+            BooleanColumn::make("Persetujuan", "persetujuan")->sortable(),
             Column::make("Denda", "denda")
                 ->sortable(),
-            // Column::make("Created at", "created_at")
-            //     ->sortable(),
-            // Column::make("Updated at", "updated_at")
-            //     ->sortable(),
         ];
+    }
+    public function bulkActions():array
+    {
+        return [
+            'accept' => 'Setujui',
+            'reject' => 'Tolak',
+            'export' => 'Export',
+            'remove ' => 'Hapus',
+        ];
+    }
+    public function accept()
+    {
+        Rent::whereIn('id', $this->getSelected())->update(['persetujuan' => 1]);
+        $this->clearSelected();
+        redirect()->route('rent.index');
+    }
+    public function reject()
+    {
+        Rent::whereIn('id', $this->getSelected())->update(['persetujuan' => 0]);
+        $this->clearSelected();
+        redirect()->route('rent.index');
+    }
+    public function remove()
+    {
+        Rent::whereIn('id', $this->getSelected())->delete();
+        $this->clearSelected();
+        redirect()->route('rent.index');
     }
 }

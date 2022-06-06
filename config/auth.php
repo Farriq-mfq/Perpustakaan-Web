@@ -16,7 +16,7 @@ return [
     */
 
     'defaults' => [
-        'guard' => 'web',
+        'guard' => 'admin',
         'passwords' => 'users',
     ],
 
@@ -42,10 +42,14 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
-        'anggota'=>[
+        'admin'=>[
             'driver'=>'session',
-            'provider'=>"anggotaProvider"
-        ]
+            'provider'=>"admins"
+        ],
+        // 'anggota'=>[
+        //     'driver'=>'session',
+        //     'provider'=>"anggotaProvider"
+        // ]
     ],
 
     /*
@@ -70,10 +74,14 @@ return [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
         ],
-        'anggotaProvider'=>[
-            'dirver'=>'eloquent',
-            'model'=>Anggota::class
-        ]
+        'admins' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Admin::class,
+        ],  
+        // 'anggotaProvider'=>[
+        //     'dirver'=>'eloquent',
+        //     'model'=>Anggota::class
+        // ],
 
         // 'users' => [
         //     'driver' => 'database',
