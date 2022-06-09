@@ -36,7 +36,5 @@ scratch. This page gets rid of all links and provides the needed markup only.
         @yield('authContent')
     </div>
 @livewireScripts
-<script src="{{asset('/dist/livewire-turbolinks.js')}}" data-turbolinks-eval="false" data-turbo-eval="false"></script>
-<script src="{{asset("/js/app.js")}}"></script>
 </body>
 </html>

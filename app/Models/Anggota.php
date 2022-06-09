@@ -15,6 +15,7 @@ class Anggota extends Authenticatable
         'username',
         'email',
         'password',
+        'profile_picture'
     ];
     protected $hidden = [
         'password',

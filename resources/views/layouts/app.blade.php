@@ -19,7 +19,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <link rel="stylesheet" href="{{asset('/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css')}}">
   <link rel="stylesheet" href="{{asset('/plugins/datatables-responsive/css/responsive.bootstrap4.min.css')}}">
   <link rel="stylesheet" href="{{asset('/plugins/datatables-buttons/css/buttons.bootstrap4.min.css')}}">
-  {{-- <link rel="stylesheet" href="{{asset('/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css')}}"> --}}
 
   <style>
     .turbolinks-progress-bar {
@@ -31,7 +30,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <script src="{{asset('/plugins/jquery/jquery.min.js')}}" ></script>
   <script src="{{asset('/plugins/bootstrap/js/bootstrap.bundle.min.js')}}" ></script>
   <script src="{{asset('/dist/js/adminlte.min.js')}}"></script>
-  {{-- <script src="{{asset('/plugins/sweetalert2/sweetalert2.min.js')}}"></script> --}}
   
   @stack('scripts')
 </head>

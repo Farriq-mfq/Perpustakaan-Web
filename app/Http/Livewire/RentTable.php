@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use Rappasoft\LaravelLivewireTables\DataTableComponent;
 use Rappasoft\LaravelLivewireTables\Views\Column;
 use App\Models\Rent;
+use Carbon\Carbon;
 use Rappasoft\LaravelLivewireTables\Views\Columns\BooleanColumn;
 
 class RentTable extends DataTableComponent
@@ -48,7 +49,11 @@ class RentTable extends DataTableComponent
             'accept' => 'Setujui',
             'reject' => 'Tolak',
             'export' => 'Export',
-            'remove ' => 'Hapus',
+            'remove' => 'Hapus',
+            'perpanjang' => 'Perpanjang',
+            'kembali'=>"Dikembalikan",
+            'lunas'=>"Lunas",
+
         ];
     }
     public function accept()
@@ -66,6 +71,25 @@ class RentTable extends DataTableComponent
     public function remove()
     {
         Rent::whereIn('id', $this->getSelected())->delete();
+        $this->clearSelected();
+        redirect()->route('rent.index');
+    }
+    public function perpanjang()
+    {
+        $dateTime = Carbon::now();
+        Rent::whereIn('id', $this->getSelected())->update(['tanggal_kembali' => $dateTime->addDays(7)->toDateTimeString(),'status'=>'pinjam']);
+        $this->clearSelected();
+        redirect()->route('rent.index');
+    }
+    public function kembali()
+    {
+        Rent::whereIn('id', $this->getSelected())->update(['status' => 'dikembalikan']);
+        $this->clearSelected();
+        redirect()->route('rent.index');
+    }
+    public function lunas()
+    {
+        Rent::whereIn('id', $this->getSelected())->update(['denda' =>0]);
         $this->clearSelected();
         redirect()->route('rent.index');
     }

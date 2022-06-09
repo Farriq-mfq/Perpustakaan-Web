@@ -131,82 +131,10 @@ class Sidebar extends Component
                     <li class="nav-item">
                       <a href="#" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
-                        <p>Pengembalian Buku</p>
-                      </a>
-                    </li>
-                    <li class="nav-item">
-                      <a href="#" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
                         <p>Buat Transaksi</p>
                       </a>
                     </li>
                   </ul>
-                </li>
-                <li class="nav-item ">
-                  <a href="#" class="nav-link ">
-                    <i class="nav-icon fas fa-lock"></i>
-                    <p>
-                      Data Admin
-                      <i class="right fas fa-angle-left"></i>
-                    </p>
-                  </a>
-                  <ul class="nav nav-treeview">
-                    <li class="nav-item">
-                      <a href="#" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>View Data</p>
-                      </a>
-                    </li>
-                    <li class="nav-item">
-                      <a href="#" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Add Data</p>
-                      </a>
-                    </li>
-                  </ul>
-                </li>
-                <li class="nav-item ">
-                  <a href="#" class="nav-link ">
-                    <i class="nav-icon fas fa-receipt"></i>
-                    <p>
-                      Laporan
-                      <i class="right fas fa-angle-left"></i>
-                    </p>
-                  </a>
-                  <ul class="nav nav-treeview">
-                    <li class="nav-item">
-                      <a href="#" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Laporan Anggota</p>
-                      </a>
-                    </li>
-                    <li class="nav-item">
-                      <a href="#" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Laporan Buku</p>
-                      </a>
-                    </li>
-                    <li class="nav-item">
-                      <a href="#" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Laporan Peminjaman</p>
-                      </a>
-                    </li>
-                    <li class="nav-item">
-                      <a href="#" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Laporan Pengembalian</p>
-                      </a>
-                    </li>
-                  </ul>
-                </li>
-                <li class="nav-item">
-                  <a href="#" class="nav-link">
-                    <i class="nav-icon fas fa-cog"></i>
-                    <p>
-                      Settings
-                    </p>
-                  </a>
                 </li>
                 <li class="nav-item">
                 <button type="button" class="btn btn-danger text-white nav-link" data-toggle="modal" data-target="#modal-logout">

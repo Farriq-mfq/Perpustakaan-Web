@@ -46,10 +46,10 @@ return [
             'driver'=>'session',
             'provider'=>"admins"
         ],
-        // 'anggota'=>[
-        //     'driver'=>'session',
-        //     'provider'=>"anggotaProvider"
-        // ]
+        'anggota'=>[
+            'driver'=>'session',
+            'provider'=>"anggotaProvider"
+        ],
     ],
 
     /*
@@ -77,11 +77,11 @@ return [
         'admins' => [
             'driver' => 'eloquent',
             'model' => App\Models\Admin::class,
-        ],  
-        // 'anggotaProvider'=>[
-        //     'dirver'=>'eloquent',
-        //     'model'=>Anggota::class
-        // ],
+        ], 
+        'anggotaProvider' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Anggota::class,
+        ], 
 
         // 'users' => [
         //     'driver' => 'database',

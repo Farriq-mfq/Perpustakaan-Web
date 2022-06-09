@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-// Route::prefix('admin')->group(function(){
+Route::prefix('admin')->group(function(){
     Route::middleware('auth:admin')->group(function(){
 
     
@@ -32,8 +32,19 @@ use Illuminate\Support\Facades\Route;
     Route::get('/buku/{id}/edit','\App\Http\Livewire\Book\Edit')->name('books.edit');
     Route::get('/peminjaman','\App\Http\Livewire\Rent\Index')->name('rent.index');
 });
-    // });
-    Route::middleware('guest:admin')->group(function(){
-        Route::get('/login','\App\Http\Livewire\Auth\Login')->name('auth.login');
-    });
-    // auth admin
+Route::middleware('guest:admin')->group(function(){
+    Route::get('/login','\App\Http\Livewire\Auth\Login')->name('auth.login');
+});
+// auth admin
+});
+Route::middleware('auth:anggota')->group(function(){
+    Route::get("/","\App\Http\Livewire\Client\Index")->name('client.index');
+    Route::get("/cari","\App\Http\Livewire\Client\Search")->name('client.search');
+    Route::get("/akun","\App\Http\Livewire\Client\Account")->name('client.account');
+    Route::get("/book/{slug}","\App\Http\Livewire\Client\Detail")->name('client.detail');
+    Route::get("/akun/info","\App\Http\Livewire\Client\Account\Info")->name('client.account.info');
+    Route::get("/akun/pinjam","\App\Http\Livewire\Client\Account\Peminjaman")->name('client.account.rent');
+});
+Route::middleware('guest:anggota')->group(function(){
+    Route::get("/login","\App\Http\Livewire\Client\Login")->name('client.login');
+});

@@ -19,7 +19,7 @@ class Login extends Component
 
         $credentials = ['email'=>$this->email,'password'=>$this->password];
         if(auth()->guard('admin')->attempt($credentials)){
-            return redirect()->intended('/');
+            return redirect()->route("home.index");
         }else{
             $this->error = "Invalid Email Atau Password";
         }
