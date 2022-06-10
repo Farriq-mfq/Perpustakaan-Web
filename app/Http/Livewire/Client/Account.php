@@ -12,6 +12,6 @@ class Account extends Component
     }
     public function render()
     {
-        return view('livewire.client.account')->extends('layouts.client')->section("clientContent");
+        return view('livewire.client.account')->extends('layouts.client',['title'=>"Akun"])->section("clientContent");
     }
 }

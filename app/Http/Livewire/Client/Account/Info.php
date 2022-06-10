@@ -53,7 +53,7 @@ class Info extends Component
             'profile'=>"required|mimes:jpg,png,jpeg|max:2048"
         ]);
         $profile = md5($this->profile.microtime()).".".$this->profile->extension();
-        if(file_exists(storage_path().'/app/public/profile/'.auth()->guard('anggota')->user()->profile_picture)){
+        if(auth()->guard('anggota')->user()->profile_picture != null){
             unlink(storage_path().'/app/public/profile/'.auth()->guard('anggota')->user()->profile_picture);
             $update = Anggota::find(auth()->guard('anggota')->user()->id)->update([
                 'profile_picture'=>$profile
@@ -98,6 +98,6 @@ class Info extends Component
     }
     public function render()
     {
-        return view('livewire.client.account.info')->extends('layouts.client')->section("clientContent");
+        return view('livewire.client.account.info')->extends('layouts.client',['title'=>'Info Akun saya'])->section("clientContent");
     }
 }

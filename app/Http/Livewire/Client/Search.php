@@ -18,6 +18,6 @@ class Search extends Component
     }
     public function render()
     {
-        return view('livewire.client.search',['books'=>Book::where("judul",'like','%'.$this->search.'%')->where('status',1)->paginate($this->perpage)])->extends('layouts.client')->section("clientContent");
+        return view('livewire.client.search',['books'=>Book::where("judul",'like','%'.$this->search.'%')->where('status',1)->paginate($this->perpage)])->extends('layouts.client',['title'=>"Cari Buku"])->section("clientContent");
     }
 }

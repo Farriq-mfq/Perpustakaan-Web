@@ -22,8 +22,8 @@ class CreateRentsTable extends Migration
             $table->foreignIdFor(Book::class);
             $table->string('peminjam');
             $table->foreignIdFor(Anggota::class);
-            $table->date('tanggal_pinjam');
-            $table->date('tanggal_kembali');
+            $table->date('tanggal_pinjam')->nullable();
+            $table->date('tanggal_kembali')->nullable();
             $table->enum('status',['pinjam','telat','dikembalikan'])->default('pinjam');
             $table->boolean('persetujuan')->default(false);
             $table->bigInteger('denda')->default(0);

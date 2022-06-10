@@ -36,7 +36,7 @@ class Index extends Component
         }else{
             $books = Book::where('status',1)->paginate($this->perpage);
         }
-        return view('livewire.client.index',['books'=>$books,'raks'=>Rak::all()])->extends('layouts.client')->section("clientContent");
+        return view('livewire.client.index',["title"=>"Home",'books'=>$books,'raks'=>Rak::all()])->extends('layouts.client',["title"=>"Home"])->section("clientContent");
     }
 }
 

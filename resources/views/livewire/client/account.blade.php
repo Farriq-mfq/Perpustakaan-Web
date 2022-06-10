@@ -14,12 +14,6 @@
                     <p class="ml-2">Peminjaman</p>
                 </a>
             </li>
-            <li>
-                <a href="" class="h-10 w-full flex items-center text-lg font-semibold pb-2 hover:bg-gray-500 hover:bg-opacity-5 hover:rounded text-gray-500">
-                    <i class="fas fa-bell"></i>
-                    <p class="ml-2">Notifikasi</p>
-                </a>
-            </li>
         </ul>
     </div>
 </div>

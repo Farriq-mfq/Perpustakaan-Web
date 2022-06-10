@@ -26,19 +26,21 @@ class PinjamComponent extends Component
     public function mount()
     {
         $hariTelat = $this->getDays(date("Y-m-d"),$this->rent->tanggal_kembali);
-        if(Rent::where('anggota_id',auth()->guard('anggota')->user()->id)->where('book_id',$this->rent->book_id)->first()->status != 'dikembalikan'){
-            if(strtotime(date("Y-m-d")) > strtotime($this->rent->tanggal_kembali)){
-                $hariTelat = $this->getDays(date("Y-m-d"),$this->rent->tanggal_kembali);
-                Rent::where('anggota_id',auth()->guard('anggota')->user()->id)->where('book_id',$this->rent->book_id)->update([
-                    'status'=>"telat",
-                    'denda'=>$hariTelat * 1000
-                ]);
-            }else{
-                Rent::where('anggota_id',auth()->guard('anggota')->user()->id)->where('book_id',$this->rent->book_id)->update([
-                    'status'=>"pinjam",
-                    'denda'=>0
-                ]);
-            }
+        if($this->rent->tanggal_kembali != null && $this->rent->tanggal_pinjam != null){
+            if(Rent::where('anggota_id',auth()->guard('anggota')->user()->id)->where('book_id',$this->rent->book_id)->first()->status != 'dikembalikan'){
+                if(strtotime(date("Y-m-d")) > strtotime($this->rent->tanggal_kembali)){
+                    $hariTelat = $this->getDays(date("Y-m-d"),$this->rent->tanggal_kembali);
+                    Rent::where('anggota_id',auth()->guard('anggota')->user()->id)->where('book_id',$this->rent->book_id)->update([
+                        'status'=>"telat",
+                        'denda'=>$hariTelat * 1000
+                    ]);
+                }else{
+                    Rent::where('anggota_id',auth()->guard('anggota')->user()->id)->where('book_id',$this->rent->book_id)->update([
+                        'status'=>"pinjam",
+                        'denda'=>0
+                    ]);
+                }
+        }
     }
     }
     public function render()

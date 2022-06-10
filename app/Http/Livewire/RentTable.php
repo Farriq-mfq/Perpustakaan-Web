@@ -58,7 +58,8 @@ class RentTable extends DataTableComponent
     }
     public function accept()
     {
-        Rent::whereIn('id', $this->getSelected())->update(['persetujuan' => 1]);
+        $dateTime = Carbon::now();
+        Rent::whereIn('id', $this->getSelected())->update(['persetujuan' => 1,'tanggal_pinjam'=>$dateTime->toDateTimeString(),'tanggal_kembali'=>$dateTime->addDays(7)->toDateTimeString()]);
         $this->clearSelected();
         redirect()->route('rent.index');
     }

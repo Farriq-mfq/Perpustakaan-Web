@@ -31,6 +31,7 @@ Route::prefix('admin')->group(function(){
     Route::get('/buku/{id}/view','\App\Http\Livewire\Book\View')->name('books.view');
     Route::get('/buku/{id}/edit','\App\Http\Livewire\Book\Edit')->name('books.edit');
     Route::get('/peminjaman','\App\Http\Livewire\Rent\Index')->name('rent.index');
+    Route::get('/peminjaman/create','\App\Http\Livewire\Rent\Create')->name('rent.create');
 });
 Route::middleware('guest:admin')->group(function(){
     Route::get('/login','\App\Http\Livewire\Auth\Login')->name('auth.login');

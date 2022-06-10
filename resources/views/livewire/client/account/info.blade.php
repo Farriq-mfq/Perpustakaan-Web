@@ -35,6 +35,8 @@
                 </form>
                 @if($profile)
                     <img src="{{$profile->temporaryUrl()}}" class="h-40 w-40 rounded-lg" alt="Profile">
+                @elseif(auth()->guard('anggota')->user()->profile_picture == null)
+                    <span>Tidak ada Foto Profile</span>
                 @else
                     <img src="{{asset('/storage/profile/'.auth()->guard('anggota')->user()->profile_picture)}}" class="h-40 w-40 rounded-lg" alt="Profile">
                 @endif

@@ -129,7 +129,7 @@ class Sidebar extends Component
                       </a>
                     </li>
                     <li class="nav-item">
-                      <a href="#" class="nav-link">
+                      <a href="{{route('rent.create')}}" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
                         <p>Buat Transaksi</p>
                       </a>
