@@ -21,6 +21,7 @@ class Index extends Component
     public $rangeMinggulalu;
     public $peminjamanMingguIni;
     public $persen;
+    public $ischart;
     public function returnDays($date)
     {
         return Carbon::create($date)->dayOfWeek;
@@ -30,8 +31,13 @@ class Index extends Component
         $mingguLalu  = DB::table('rents')->whereBetween('tanggal_pinjam',[Carbon::now()->subWeek()->format("Y-m-d"),Carbon::now()->format("Y-m-d")])->select('tanggal_pinjam')->count();
         $mingguIni =  DB::table('rents')->whereBetween('tanggal_pinjam',[Carbon::now()->format("Y-m-d"),Carbon::now()->addWeek(1)->format("Y-m-d")])->select('tanggal_pinjam')->count();
         $count = DB::table('rents')->count();
-        $rumus = (($mingguIni - $mingguLalu / $mingguLalu) / 100) * $count;
-        $this->persen = $rumus;
+        try {
+            $rumus = (($mingguIni - $mingguLalu / $mingguLalu) / 100) * $count;
+            $this->persen = $rumus;
+            $this->ischart = true;
+        } catch (\Throwable $th) {
+            $this->ischart = false;
+        }
         // end
         $this->peminjamanMingguIni = DB::table('rents')->where('tanggal_pinjam',Carbon::now()->format('Y-m-d'))->count();
         $this->rangeMinggulalu = Carbon::now()->subWeek()->format("Y-m-d").' - '. Carbon::now()->format("Y-m-d");

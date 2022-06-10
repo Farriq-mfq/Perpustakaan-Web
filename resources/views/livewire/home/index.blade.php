@@ -57,6 +57,7 @@
             <!-- /.info-box -->
             </div>
     </div>
+    @if($ischart)
     <div class="row">
         <div class="col-lg-12">
             <div class="card">
@@ -99,6 +100,7 @@
             <!-- /.card -->
           </div>
     </div>
+    @endif
 </div>
 @push('scripts')
 <script src="{{asset('/plugins/jquery/jquery.min.js')}}" ></script>
