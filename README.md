@@ -10,7 +10,7 @@
 ``` 
 git clone https://github.com/Farriq-mfq/Perpustakaan-Web.git
 ``` 
-2. Import Database perpusqu.sql ke xampp
+2. Import Database perpusqu.sql ke phpMyadmin
 3. Run laravel dengan comman `` php artisan serve ``
 4. Done
 
