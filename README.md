@@ -16,6 +16,11 @@
   ```
   php artisan storage:link
   ```
+- Import ``perpusqu.sql``
+- run 
+  ```
+  php artisan serve
+  ```
 - visit ``{base_url}/admin/login`` to login admin
   
   username

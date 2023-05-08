@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 08, 2023 at 01:51 AM
+-- Generation Time: May 08, 2023 at 02:37 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -143,7 +143,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (91, '2022_06_04_041446_create_raks_table', 1),
 (93, '2022_06_06_021719_create_anggotas_table', 3),
 (100, '2022_06_06_062716_create_admins_table', 5),
-(102, '2022_06_06_021434_create_rents_table', 6);
+(102, '2022_06_06_021434_create_rents_table', 6),
+(103, '2014_10_12_000000_create_users_table', 7);
 
 -- --------------------------------------------------------
 
@@ -323,7 +324,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=103;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=104;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
